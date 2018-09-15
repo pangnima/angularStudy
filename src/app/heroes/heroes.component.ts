@@ -5,26 +5,30 @@ import { HEROES } from '../mock-heroes';
 @Component({
   selector: 'app-heroes',
   templateUrl: './heroes.component.html',
-  styleUrls: ['./heroes.component.css']
+  styleUrls: ['./heroes.component.scss']
 })
 export class HeroesComponent implements OnInit {
-  
-  hero : Hero = {
-    id:1,
-    name:'Winstorm'
-  }
+  hero: Hero = {
+    id: 1,
+    name: 'Winstorm'
+  };
+
   isSpecial = true;
 
   heroes = HEROES;
+  selectedHero: Hero;
 
-  constructor() { 
+  constructor() {
   }
 
   ngOnInit() {
   }
-  onSave(e:any){
+  onSave(e: any) {
     console.log(e);
     this.isSpecial = !this.isSpecial;
   }
-
+  onSelected(hero: Hero) {
+    console.log(hero);
+    this.selectedHero = hero;
+  }
 }
